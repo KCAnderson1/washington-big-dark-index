@@ -14,13 +14,13 @@ February?
 
 ## Data source
 
-Weather data come from Daymet Version 4, a NASA-supported dataset distributed by
-the Oak Ridge National Laboratory Distributed Active Archive Center. Daymet
-provides daily estimates at a 1 km spatial resolution.
+Weather data come from the Open-Meteo Historical Weather API using the ERA5
+reanalysis dataset. ERA5 combines observations and weather modeling to provide a
+consistent, gap-free historical record.
 
-- Dataset: https://doi.org/10.3334/ORNLDAAC/1840
-- API documentation: https://daymet.ornl.gov/web_services.html
-- Comparison period: 1991-2020
+- API documentation: https://open-meteo.com/en/docs/historical-weather-api
+- Reanalysis model: ERA5
+- Comparison period: 2006-2020
 
 ## Current measurements
 
@@ -35,9 +35,9 @@ provides daily estimates at a 1 km spatial resolution.
 ```text
 data/
   locations.csv          Washington communities and coordinates
-  raw/                   Downloaded Daymet data (created by the script)
+  raw/                   Downloaded weather data (created by the script)
 scripts/
-  download_daymet.py     Reproducible data download
+  download_weather.py    Reproducible data download
 requirements.txt         Required Python packages
 ```
 
@@ -45,10 +45,10 @@ requirements.txt         Required Python packages
 
 ```bash
 pip install -r requirements.txt
-python scripts/download_daymet.py
+python scripts/download_weather.py
 ```
 
-The script creates `data/raw/daymet_daily_1991_2020.csv`.
+The script creates `data/raw/weather_daily_2006_2020.csv`.
 
 ## Status
 
