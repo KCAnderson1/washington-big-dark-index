@@ -1,0 +1,14 @@
+rank,community,region,latitude,longitude,avg_daylight_hours,avg_sunshine_hours,sunshine_share_pct,wet_day_pct,avg_winter_precipitation_mm,avg_solar_energy_mj_m2,winter_day_records,avg_longest_wet_streak_days,daylight_score,sunshine_score,cloud_score,wet_day_score,precipitation_score,big_dark_index
+1,Forks,Olympic Peninsula,47.95,-124.39,9.19,4.88,52.73,62.35,1069.19,4.51,1684,17.29,0.74,0.88,0.85,1.0,1.0,89.3
+2,Bellingham,North Puget Sound,48.75,-122.48,9.11,4.84,52.73,59.56,798.04,4.3,1684,13.21,1.0,0.9,0.85,0.92,0.71,87.66
+3,Aberdeen,Southwest Coast,46.98,-123.82,9.3,4.66,49.82,58.43,914.66,4.36,1684,15.57,0.4,1.0,1.0,0.89,0.84,82.47
+4,Port Angeles,Olympic Peninsula,48.12,-123.43,9.19,4.99,53.96,60.57,861.89,4.52,1684,13.43,0.74,0.82,0.78,0.95,0.78,81.33
+5,Seattle,Central Puget Sound,47.61,-122.33,9.25,4.85,52.18,57.9,672.23,4.33,1684,13.79,0.57,0.89,0.88,0.87,0.58,75.75
+6,Olympia,South Puget Sound,47.04,-122.9,9.3,4.71,50.38,55.29,732.31,4.42,1684,13.21,0.4,0.97,0.97,0.8,0.64,75.63
+7,Long Beach,Southwest Coast,46.35,-124.05,9.37,5.12,54.25,61.82,905.27,4.86,1684,19.36,0.16,0.75,0.77,0.98,0.83,69.74
+8,Vancouver,Southwest Interior,45.63,-122.67,9.42,4.82,50.91,58.37,812.5,4.81,1684,15.0,0.0,0.91,0.94,0.89,0.73,69.33
+9,Spokane,Eastern Washington,47.66,-117.43,9.22,5.6,60.41,39.61,266.2,5.49,1684,8.07,0.65,0.48,0.45,0.35,0.14,41.47
+10,Wenatchee,Central Washington,47.42,-120.31,9.25,6.01,64.63,39.37,286.83,5.92,1684,7.5,0.57,0.26,0.23,0.34,0.17,31.24
+11,Walla Walla,Southeast Washington,46.06,-118.34,9.4,6.14,65.09,45.55,332.74,6.15,1684,9.43,0.08,0.19,0.2,0.52,0.22,24.02
+12,Yakima,Central Washington,46.6,-120.51,9.35,6.48,68.99,31.77,216.89,6.29,1684,5.57,0.24,0.0,0.0,0.12,0.09,9.03
+13,Tri-Cities,Southeast Washington,46.24,-119.1,9.37,6.41,68.03,27.55,130.26,6.19,1684,4.71,0.16,0.04,0.05,0.0,0.0,4.93
