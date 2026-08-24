@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap, Normalize
 import pandas as pd
 
 
@@ -18,27 +19,38 @@ def main():
         "big_dark_index", ascending=True
     )
 
-    colors = []
-    for rank in summary["rank"]:
-        if rank <= 3:
-            colors.append("#172A3A")
-        elif rank <= 8:
-            colors.append("#4F6D7A")
-        else:
-            colors.append("#A9BBC5")
+    color_scale = LinearSegmentedColormap.from_list(
+        "big_dark_heat",
+        ["#FFF2A8", "#FFB65C", "#F06467", "#A83A87", "#503078", "#17233A"],
+    )
+    normalization = Normalize(vmin=0, vmax=100)
+    colors = [
+        color_scale(normalization(value))
+        for value in summary["big_dark_index"]
+    ]
 
     fig, axis = plt.subplots(figsize=(11, 7.5))
+    fig.patch.set_facecolor("white")
+    axis.set_facecolor("#F7FAFB")
+    axis.barh(
+        summary["community"],
+        [100] * len(summary),
+        color="#E7EDF0",
+        height=0.7,
+        zorder=1,
+    )
     bars = axis.barh(
         summary["community"],
         summary["big_dark_index"],
         color=colors,
         height=0.7,
+        zorder=3,
     )
 
     axis.set_xlim(0, 100)
     axis.set_xlabel("Big Dark Index (0–100)", fontsize=11, labelpad=10)
     axis.set_ylabel("")
-    axis.xaxis.grid(True, color="#D9E1E5", linewidth=0.8)
+    axis.xaxis.grid(True, color="#D3DDE2", linewidth=0.8)
     axis.yaxis.grid(False)
     axis.set_axisbelow(True)
 
@@ -49,13 +61,15 @@ def main():
             "{:.1f}".format(value),
             va="center",
             fontsize=10,
-            color="#23313B",
+            fontweight="semibold",
+            color="#17233A",
+            zorder=4,
         )
 
     for edge in ["top", "right", "left"]:
         axis.spines[edge].set_visible(False)
-    axis.spines["bottom"].set_color("#A9BBC5")
-    axis.tick_params(axis="y", length=0, labelsize=10)
+    axis.spines["bottom"].set_color("#A9B8C0")
+    axis.tick_params(axis="y", length=0, labelsize=10, colors="#17233A")
     axis.tick_params(axis="x", colors="#52636D")
 
     fig.suptitle(
@@ -65,12 +79,12 @@ def main():
         ha="left",
         fontsize=20,
         fontweight="bold",
-        color="#172A3A",
+        color="#17233A",
     )
     fig.text(
         0.12,
         0.925,
-        "Comparing 14 complete November–February winters, 2006–2020",
+        "Gold indicates a lighter winter combination; deep purple indicates a darker one",
         ha="left",
         fontsize=11,
         color="#52636D",
@@ -79,7 +93,7 @@ def main():
         0.12,
         0.025,
         "Index equally weights daylight, sunshine, cloudiness, wet-day frequency, and precipitation.\n"
-        "Scores compare only the 13 Washington communities included in this analysis.",
+        "Colors use the same 0–100 scale as the Washington heat map.",
         ha="left",
         fontsize=9,
         color="#52636D",

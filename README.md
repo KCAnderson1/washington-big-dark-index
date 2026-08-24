@@ -19,6 +19,13 @@ the combination is most severe.
 - Bellingham and Port Angeles rank higher than rainfall alone would suggest
   because the index also accounts for their shorter northern daylight.
 
+## Geographic pattern
+
+![Washington Big Dark Index map](images/big_dark_map.png)
+
+The point map makes the west-to-east divide visible without implying that the 13
+sampled locations represent every community or county in Washington.
+
 ## Method
 
 The analysis covers 14 complete November-through-February winters from 2006 to
@@ -41,10 +48,12 @@ climate classifications.
 Historical weather data come from the
 [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api)
 using the ERA5 reanalysis model.
+The map outline comes from the
+[U.S. Census Bureau TIGERweb service](https://tigerweb.geo.census.gov/arcgis/rest/services/Generalized_ACS2024/State_County/MapServer).
 
 - Python and pandas for data collection, cleaning, streak calculations, and scoring
 - SQLite and SQL for winter-level aggregation
-- Matplotlib for the ranking visualization
+- Matplotlib for the ranking and geographic visualizations
 - Git and GitHub for version control and reproducibility
 
 ## Repository structure
@@ -57,10 +66,12 @@ data/
   raw/                          Recreated locally and excluded from version control
 images/
   big_dark_ranking.png          Primary result visualization
+  big_dark_map.png              Geographic score comparison
 scripts/
   download_weather.py           Reproducible API download
   analyze_big_dark.py           SQL aggregation and index calculation
   create_chart.py               Ranking chart generation
+  create_map.py                 Washington point-map generation
 sql/
   winter_summary.sql            SQL used to summarize winter conditions
 requirements.txt                Required Python packages
@@ -73,6 +84,7 @@ pip install -r requirements.txt
 python scripts/download_weather.py
 python scripts/analyze_big_dark.py
 python scripts/create_chart.py
+python scripts/create_map.py
 ```
 
 ## Limitations
